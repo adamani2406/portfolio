@@ -1,0 +1,143 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #4a90e3;
+    --secondary-color: #f5f5f5;
+    --accent-color: #b1ada7;
+    --text-color: #333;
+}
+
+@font-face {
+    font-family: 'Potato';
+    src: url('./fonts/Potato\ Truffles.otf') format('opentype');
+  }
+
+body {
+    font-family: 'Potato', sans-serif;
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+.education {
+    padding: 20px;
+}
+
+.education-title,
+.skills-title {
+    font-family: 'Potato', sans-serif;
+    text-align: center;
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.education-card,
+.skills-card {
+    background: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover,
+.skills-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.education-card p,
+.skills-card ul {
+    font-family: 'Potato', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.skills-card ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-card ul li {
+    margin-bottom: 5px;
+    background: var(--secondary-color);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--primary-color);
+  }
+  
+  .nav-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .navbar button {
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-family: 'Potato', sans-serif;
+  }
+  
+  .navbar button:hover {
+    background: var(--accent-color);
+    color: white;
+  }
+
+@media (max-width: 768px) {
+
+    .education-title,
+    .skills-title {
+        font-size: 1.5em;
+    }
+
+    .education-card,
+    .skills-card {
+        padding: 15px;
+    }
+
+    .education-card p,
+    .skills-card ul {
+        font-size: 1em;
+    }
+
+    .profile-card {
+        padding: 15px;
+      }
+    
+      .profile-details h1 {
+        font-size: 1.5em;
+      }
+    
+      .profile-details p {
+        font-size: 0.9em;
+      }
+    
+      button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
+
+    
+}
