@@ -5,23 +5,10 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const Projects = () => {
-
     const navigate = useNavigate();
 
-    const handleExperience = () => {
-        navigate('/experience'); // Navigate to Experience when "Experience" is clicked
-    };
-
-    const handleAboutMe = () => {
-        navigate('/'); // Navigate to AboutMe when "AboutMe" is clicked
-    };
-
-    const handleContact = () => {
-        navigate('/contact'); // Navigate to Contact when "Contact" is clicked
-    };
-
-    const handleProjects = () => {
-        navigate('/projects'); // Navigate to Projects when "Projects" is clicked
+    const handleNavigation = (path) => {
+        navigate(path);
     };
 
     const quotes = [
@@ -39,55 +26,71 @@ const Projects = () => {
         return () => clearInterval(interval);
     }, []);
 
+    const projects = [
+        {
+            title: "Book Mapper",
+            description: "Developed a Java application to utilize a hash table data structure to efficiently map ISBNs to books stored in CSV format."
+        },
+        {
+            title: "University Map",
+            description: "Developed an online Java application to implement Dijkstra's shortest path algorithm for efficient navigation between UW-Madison buildings."
+        },
+        {
+            title: "Website",
+            description: "Designed an aesthetically appealing website for 'Ravishal Silverhouse,' showcasing bespoke Silverware products."
+        },
+        {
+            title: "Memory Allocator",
+            description: "Devised a heap-based memory allocator in C, using pointers, bit-masking, and shift operators."
+        },
+        {
+            title: "Regression Models",
+            description: "Developed regression models to predict census data for Wisconsin using Geopandas, Pandas, and Sklearn."
+        }
+    ];
 
-  return (
-    <motion.div
-      className="projects"
-      initial={{ x: '100vw' }}
-      animate={{ x: 0 }}
-      transition={{ type: 'spring', stiffness: 50 }}
-    >
-        <nav className="navbar">
-                    <div className="left-section">
-                        <div className="social-media-icons">
-                            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-                            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-                        </div>
-                        <h1 className="quote">{quote}</h1> 
+    return (
+        <motion.div
+            className="projects-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+        >
+            <nav className="navbar">
+                <div className="left-section">
+                    <div className="social-media-icons">
+                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
                     </div>
-                    <div className="nav-buttons">
-                        <button onClick={handleExperience}>Experience</button>
-                        <button onClick={handleAboutMe}>About Me</button>
-                        <button onClick={handleProjects}>Projects</button>
-                        <button onClick={handleContact}>Contact</button>
-                    </div>
-                </nav>
-      <h2 className="projects-title">Projects</h2>
-      <div className="projects-grid">
-        <div className="project-card">
-          <h3>Book Mapper</h3>
-          <p>Developed a Java application to utilize a hash table data structure to efficiently map ISBNs to books stored in CSV format.</p>
-        </div>
-        <div className="project-card">
-          <h3>University Map</h3>
-          <p>Developed an online Java application to implement Dijkstra's shortest path algorithm for efficient navigation between UW-Madison buildings.</p>
-        </div>
-        <div className="project-card">
-          <h3>Website</h3>
-          <p>Designed an aesthetically appealing website for "Ravishal Silverhouse," showcasing bespoke Silverware products.</p>
-        </div>
-        <div className="project-card">
-          <h3>Memory Allocator</h3>
-          <p>Devised a heap-based memory allocator in C, using pointers, bit-masking, and shift operators.</p>
-        </div>
-        <div className="project-card">
-          <h3>Regression Models</h3>
-          <p>Developed regression models to predict census data for Wisconsin using Geopandas, Pandas, and Sklearn.</p>
-        </div>
-      </div>
-    </motion.div>
-  );
+                    <h1 className="quote">{quote}</h1>
+                </div>
+                <div className="nav-buttons">
+                    <button onClick={() => handleNavigation('/experience')}>Experience</button>
+                    <button onClick={() => handleNavigation('/')}>About Me</button>
+                    <button onClick={() => handleNavigation('/education')}>Education</button>
+                    <button onClick={() => handleNavigation('/contact')}>Contact</button>
+                </div>
+            </nav>
+            <div className="main-content">
+                <h1 className="projects-title">Projects</h1>
+                <div className="projects-grid">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            className="project-card"
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                        >
+                            <h3>{project.title}</h3>
+                            <p>{project.description}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </motion.div>
+    );
 };
 
 export default Projects;
