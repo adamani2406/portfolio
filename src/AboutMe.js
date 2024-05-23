@@ -1,10 +1,12 @@
 import React from 'react';
 import AnishPhoto from './AnishPhoto.jpg';
+import { useTheme } from './ThemeContext';
 import './AboutMe.css';
 import { useNavigate } from 'react-router-dom';
 
 const AboutMe = () => {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const handleEducation = () => {
     navigate('/education'); // Navigate to Education when "Education" is clicked
@@ -42,8 +44,13 @@ const AboutMe = () => {
           <button onClick={handleProjects}>Projects</button>
           <button onClick={handleContact}>Contact</button>
         </div>
+        <button className="theme-toggle-button" onClick={toggleTheme}>
+                Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode
+            </button>
       </div>
+      
     </div>
+    
   );
 };
 

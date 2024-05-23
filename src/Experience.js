@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './Experience.css';
+import { useTheme } from './ThemeContext';
 
 const Experience = () => {
     const navigate = useNavigate();
+    const { theme, toggleTheme } = useTheme();
 
     const handleNavigation = (path) => {
         navigate(path);
@@ -90,6 +92,9 @@ const Experience = () => {
                     <button onClick={() => handleNavigation('/projects')}>Projects</button>
                     <button onClick={() => handleNavigation('/contact')}>Contact</button>
                 </div>
+                <button className="theme-toggle-button" onClick={toggleTheme}>
+                Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode
+            </button>
             </nav>
             <div className="main-content">
                 <h1 className="experience-title">Experience</h1>

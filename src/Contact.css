@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+
+
 :root {
     --primary-color: #1e1e1e; /* Dark background color */
     --secondary-color: #2e2e2e; /* Slightly lighter dark color for cards */
@@ -11,8 +13,21 @@
     --font-family: 'Roboto', sans-serif;
 }
 
+[data-theme='light'] {
+    --primary-color: #f5f5f5;
+    --secondary-color: #ffffff;
+    --accent-color: #1e1e1e;
+    --text-color: #333333;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+@font-face {
+    font-family: 'Potato';
+    src: url('./fonts/Potato\ Truffles.otf') format('opentype');
+  }
+
 body {
-    font-family: var(--font-family);
+    font-family: 'Potato';
     margin: 0;
     padding: 0;
     background: var(--primary-color);
@@ -74,6 +89,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
+    font-family: 'Potato';
 }
 
 .nav-buttons button:hover {
@@ -82,11 +98,12 @@ body {
 }
 
 .main-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0px;
+    padding: 20px;
 }
 
 .contact-title {
@@ -98,10 +115,9 @@ body {
 }
 
 .contact-content {
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
     width: 100%;
     max-width: 1200px;
 }
@@ -114,6 +130,7 @@ body {
     padding: 20px;
     min-width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 50px;
 }
 
 .contact-details:hover {
@@ -163,32 +180,68 @@ body {
 
 .contact-form input, .contact-form textarea {
     padding: 10px;
-    margin-top: 5px;
+    margin-top: 0px;
     border: 1px solid var(--text-color);
     border-radius: 5px;
     transition: border 0.3s;
     background: var(--primary-color);
     color: var(--text-color);
+    font-size: 1em;
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
     border-color: var(--accent-color);
 }
 
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .contact-form button {
-    padding: 10px;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
+    padding: 10px 270px;
+    background: var(--secondary-color);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    margin: 15px 5px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
-    margin-top: 10px;
+    transition: background 0.3s, color 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: darken(var(--accent-color), 10%);
+    background: var(--accent-color);
+    color: var(--primary-color);
 }
+
+.form-status {
+    margin-top: 10px;
+    color: var(--accent-color);
+}
+
+.error {
+    color: #ff4d4d;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.theme-toggle-button {
+    display: flex;
+    padding: 10px 30px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    justify-content: center;
+  }
+  
+  
+  .theme-toggle-button:hover {
+    background: var(--text-color);
+    color: var(--primary-color);
+  }
 
 @keyframes fadeIn {
     from {
