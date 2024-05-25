@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
 
+
 const Contact = () => {
     const navigate = useNavigate();
     const { theme, toggleTheme } = useTheme();
@@ -144,7 +145,7 @@ const Contact = () => {
                             ></textarea>
                             {errors.message && <p className="error">{errors.message}</p>}
                             <div className="form-buttons">
-                                <button type = "button" className='button'>Send</button>
+                                <button type = "button" className='button' onClick={handleSubmit}>Send</button>
                                 <button type = "button" className="button" onClick={handleClear}>Clear</button>
                             </div>
                         </form>

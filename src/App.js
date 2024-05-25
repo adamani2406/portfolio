@@ -8,6 +8,7 @@ import Contact from './Contact';
 import './App.css';
 import { ThemeProvider } from './ThemeContext';
 import ThemeToggle from './ThemeToggle';
+import Chatbot from './Chatbot';
 
 function App() {
   return (
@@ -24,7 +25,9 @@ function App() {
           
         </Routes>
     </BrowserRouter>
+  
     </div>
+    <Chatbot />
     </ThemeProvider>
       );
     

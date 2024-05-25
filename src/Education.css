@@ -141,6 +141,7 @@ body {
 
 .degree, .coursework, .honors {
     margin: 10px 0;
+    color: var(--text-color);
 }
 
 .date {
