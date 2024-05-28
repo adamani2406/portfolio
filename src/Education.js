@@ -45,9 +45,9 @@ const Education = () => {
             <nav className="navbar">
                 <div className="left-section">
                     <div className="social-media-icons">
-                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+                        <a href="https://github.com/adamani2406" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                        <a href="https://www.linkedin.com/in/anish-damani/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                        <a href="https://x.com/home" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
                     </div>
                     <h1 className="quote">{quote}</h1>
                 </div>
